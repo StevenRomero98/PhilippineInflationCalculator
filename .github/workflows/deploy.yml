@@ -16,6 +16,25 @@ jobs:
           node-version: '18'
       - name: Install dependencies
         run: npm ci
+      - name: Debug: environment and repo
+        run: |
+          echo "--- node/npm versions ---"
+          node -v || true
+          npm -v || true
+          echo "--- working directory ---"
+          pwd
+          echo "--- repo root listing ---"
+          ls -la
+          echo "--- src listing ---"
+          ls -la src || true
+          echo "--- src/components listing ---"
+          ls -la src/components || true
+          echo "--- vite.config.js ---"
+          sed -n '1,200p' vite.config.js || true
+          echo "--- package.json (short) ---"
+          sed -n '1,200p' package.json || true
+          echo "--- package-lock.json head ---"
+          head -n 40 package-lock.json || true
       - name: Build
         run: npm run build
       - name: Deploy
