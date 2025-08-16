@@ -7,6 +7,8 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview"
+  ,"predeploy": "npm run build",
+  "deploy": "echo \"Use GitHub Actions to deploy to gh-pages (workflow present).\""
   },
   "dependencies": {
     "react": "18.2.0",
